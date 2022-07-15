@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "117768483897",
+    "project_id": "teegg-bc644",
+    "storage_bucket": "teegg-bc644.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117768483897:android:371ba795da6d45cc40c9e8",
+        "android_client_info": {
+          "package_name": "com.example.teegg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117768483897-rmg2c44uupk9lfopqgne361dq2fbnhqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOjKU1RMCMXUO4zYxPPs_7c4PX6G11LOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117768483897-rmg2c44uupk9lfopqgne361dq2fbnhqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
