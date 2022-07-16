@@ -5,6 +5,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:provider/provider.dart';
 import 'package:teegg/views/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 import '../app_theme.dart';
 import '../app_theme_notifier.dart';
@@ -27,6 +28,7 @@ class SettingScreenState extends State<SettingScreen> {
 
   //Other Variables
   bool isInProgress = false;
+  String avatarUrl = '';
 
   @override
   void initState() {
@@ -35,6 +37,8 @@ class SettingScreenState extends State<SettingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _loadAvatarData();
+
     return Consumer<AppThemeNotifier>(
       builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         int themeType = value.themeMode();
@@ -78,6 +82,18 @@ class SettingScreenState extends State<SettingScreen> {
     );
   }
 
+  _loadAvatarData() async {
+    final url = await FirebaseStorage.instance.ref().child('avatar/jamesedwardbaldonadoii.jpg').getDownloadURL();
+
+    await Future.delayed(const Duration(seconds: 1), () {
+      if (mounted) {
+        setState(() {
+          avatarUrl = url;
+        });
+      }
+    });
+  }
+
   _buildBody() {
     String? name = '';
 
@@ -96,11 +112,9 @@ class SettingScreenState extends State<SettingScreen> {
                   decoration: BoxDecoration(
                       color: themeData.colorScheme.primary.withAlpha(20),
                       border: Border.all(width: 1),
-                      image: const DecorationImage(
+                      image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(
-                          "./assets/images/person.jpg",
-                        ),
+                        image: NetworkImage(avatarUrl),
                       )),
                   height: MySize.size68,
                   width: MySize.size68,

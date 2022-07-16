@@ -51,7 +51,6 @@ class AppScreenState extends State<AppScreen>
         .authStateChanges()
         .listen((User? user) {
       if (user == null) {
-        print('User is currently signed out!');
         _openLoginPage();
       } else {
         print('User is signed in!');
@@ -142,7 +141,7 @@ class AppScreenState extends State<AppScreen>
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Icon(
-                                MdiIcons.chat,
+                                MdiIcons.video,
                                 color: themeData.colorScheme.primary,
                               ),
                               Container(
@@ -155,11 +154,11 @@ class AppScreenState extends State<AppScreen>
                                 width: 10,
                               )
                             ],
-                          )
-                              : Icon(
-                            MdiIcons.chat,
+                          ) : Icon(
+                            MdiIcons.video,
                             color: themeData.colorScheme.onBackground,
-                          )),
+                          )
+                      ),
                       Container(
                           child: (_currentIndex == 2)
                               ? Column(
